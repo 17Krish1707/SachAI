@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+httpx
+python-dotenv
+pytesseract
+Pillow
+pydantic
+pydantic-settings
+google-genai
+tavily-python
+pypdf
+pymupdf
+beautifulsoup4
+python-multipart
+pytest

@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+service_account.json
+credentials.json
+.pytest_cache/
+*.log
+audio_files/upload_*

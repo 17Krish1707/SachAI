@@ -1,0 +1,32 @@
+# Environments & Secrets
+.env
+.env.local
+.env.production
+.env.*
+!.env.example
+service_account.json
+credentials.json
+
+# Python
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.log
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+.npm
+*.tsbuildinfo
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

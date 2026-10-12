@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F382E" />
+      <stop offset="50%" stop-color="#144C3E" />
+      <stop offset="100%" stop-color="#09261F" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bgGrad)" filter="url(#shadow)" />
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="none" stroke="#34D399" stroke-width="6" stroke-opacity="0.3" />
+
+  <!-- Inner Protective Shield Geometry -->
+  <path d="M256 80 L384 136 C384 270 328 360 256 420 C184 360 128 270 128 136 Z" 
+        fill="#0B2B23" 
+        stroke="url(#goldGrad)" 
+        stroke-width="12" 
+        stroke-linejoin="round" />
+
+  <!-- Flowing Stylized 'S' for Sach & Truth Checkmark -->
+  <!-- Top curve of S -->
+  <path d="M304 184 C296 160 264 150 236 156 C206 162 188 184 190 214 C192 248 226 264 266 276 C314 290 336 312 334 350 C332 388 296 414 246 410 C210 406 186 384 180 366" 
+        fill="none" 
+        stroke="url(#accentGrad)" 
+        stroke-width="26" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+
+  <!-- Dynamic Verification Checkmark through Center -->
+  <path d="M196 268 L244 316 L356 196" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        filter="url(#shadow)" />
+
+  <!-- Sparkle of Truth -->
+  <circle cx="372" cy="144" r="14" fill="#34D399" />
+  <circle cx="372" cy="144" r="7" fill="#FFFFFF" />
+</svg>
