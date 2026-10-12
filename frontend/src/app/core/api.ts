@@ -3,8 +3,15 @@
  * Configured via VITE_API_BASE_URL (defaults to http://127.0.0.1:8000)
  */
 
+const isLocalhost =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1" ||
+    window.location.hostname === "0.0.0.0");
+
 export const API_BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string) || "http://127.0.0.1:8000";
+  (import.meta.env.VITE_API_BASE_URL as string) ||
+  (isLocalhost ? "http://127.0.0.1:8000" : "");
 
 export type VerdictType =
   | "VERIFIED"
