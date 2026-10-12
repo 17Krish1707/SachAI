@@ -220,18 +220,27 @@ class ContentExtractor:
                     mime = "audio/ogg"
                 elif lower_name.endswith(".m4a"):
                     mime = "audio/mp4"
+                elif lower_name.endswith(".webm"):
+                    mime = "audio/webm"
 
                 logger.info("Transcribing audio via Gemini Audio...")
-                response = self.gemini_client.models.generate_content(
-                    model="gemini-2.5-flash",
-                    contents=[
-                        types.Part.from_bytes(data=file_bytes, mime_type=mime),
-                        "Transcribe this voice note / audio accurately. If it is in Hindi, Tamil, Telugu, or another Indian language, transcribe the spoken words accurately in the original script. Return ONLY the transcription text."
-                    ]
-                )
-                if response and response.text:
-                    transcript = response.text.strip()
-                    logger.info("Transcribed audio via Gemini Audio.")
+                # Try gemini-3.5-flash-lite, fallback to gemini-flash-lite-latest
+                for cand_model in ["gemini-3.5-flash-lite", "gemini-flash-lite-latest", "gemini-3.8-flash"]:
+                    try:
+                        response = self.gemini_client.models.generate_content(
+                            model=cand_model,
+                            contents=[
+                                types.Part.from_bytes(data=file_bytes, mime_type=mime),
+                                "Transcribe this voice note / audio accurately. If it is in Hindi, Tamil, Telugu, or another Indian language, transcribe the spoken words accurately in the original script. Return ONLY the transcription text."
+                            ]
+                        )
+                        if response and response.text:
+                            transcript = response.text.strip()
+                            logger.info(f"Transcribed audio via Gemini Audio ({cand_model}).")
+                            break
+                    except Exception as inner_e:
+                        logger.warning(f"Audio transcription failed with {cand_model}: {inner_e}")
+                        continue
             except Exception as e:
                 logger.error(f"Gemini Audio transcription error: {e}")
 
